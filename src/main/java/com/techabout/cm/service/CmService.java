@@ -1,6 +1,7 @@
 package com.techabout.cm.service;
 
 import com.techabout.cm.dto.CmGetResDto;
+import com.techabout.core.dao.CommonDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,13 @@ import java.util.List;
 @Slf4j
 public class CmService {
 
+    private final CommonDao commonDao;
+
     /**
      * 메뉴 조회
      * */
     public List<CmGetResDto> getMenuList() {
         // Repository 를 통한 쿼리 호출
-        return null;
+        return commonDao.selectList("statement: namespace.queryId");
     }
 }
